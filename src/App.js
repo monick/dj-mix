@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { simpleAction } from './actions/simpleAction';
-import Counter from './Counter';
+import TrackComponent from './TrackComponent';
 
 const mapStateToProps = state => ({
   ...state
@@ -21,16 +20,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <pre>
-            {
-              JSON.stringify(this.props)
-            }
-          </pre>
-          <button onClick={this.simpleAction}>Test redux action</button>
-          <Counter />
-        </header>
+      <div className="App grid-container">
+        <TrackComponent text={'TRACK 1'} left/>
+        <TrackComponent text={'TRACK 2'} right/>
       </div>
     );
   }

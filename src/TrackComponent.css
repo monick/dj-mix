@@ -1,0 +1,11 @@
+.track {
+    background: aqua;
+}
+
+.track.left {
+    grid-area: leftTrack;
+}
+
+.track.right {
+    grid-area: rightTrack;
+}
