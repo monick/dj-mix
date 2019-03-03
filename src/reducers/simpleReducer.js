@@ -1,10 +1,19 @@
-export default (state = {}, action) => {
-    switch (action.type) {
-     case 'SIMPLE_ACTION':
+export default (state = {count: 0}, action) => {
+  switch (action.type) {
+    case 'SIMPLE_ACTION':
       return {
-       result: action.payload
+        result: action.payload
       }
-     default:
-      return state
-    }
+    case 'INCREMENT':
+        return {
+          count: state.count + 1
+        }
+    case 'DECREMENT':
+        return {
+          count: state.count - 1
+        }
+
+    default:
+      return state;
+  }
 }
