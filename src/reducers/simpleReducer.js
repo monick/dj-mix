@@ -12,6 +12,10 @@ export default (state = {count: 0}, action) => {
         return {
           count: state.count - 1
         }
+    case 'LOAD TRACK':
+        return {
+            
+        }
 
     default:
       return state;

@@ -49,7 +49,8 @@ const handleClick = (loadTrack) => async () => {
 
     jsmediatags.read(blob, {
         onSuccess: function(tag) {
-            loadTrack();
+            console.log(tag);
+            loadTrack(tag);
         },
         onError: function(error) {
             console.log(':(', error.type, error.info);
