@@ -58,7 +58,7 @@ const handleClick = (loadTrack) => async () => {
     });
 }
 
-export default class TrackComponent extends React.Component {
+class TrackComponent extends React.Component {
     render() {
         const alignmentClassName = this.props.left 
             ? 'track--left' 
@@ -75,3 +75,9 @@ export default class TrackComponent extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    author: state.artist,
+    title: state.title
+});
+export default connect(mapStateToProps) (TrackComponent);

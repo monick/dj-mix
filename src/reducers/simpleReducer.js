@@ -1,20 +1,16 @@
-export default (state = {count: 0}, action) => {
+const defaultState = {
+  title: 'Title',
+  artist: 'Artist'
+};
+
+export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'SIMPLE_ACTION':
-      return {
-        result: action.payload
-      }
-    case 'INCREMENT':
-        return {
-          count: state.count + 1
-        }
-    case 'DECREMENT':
-        return {
-          count: state.count - 1
-        }
     case 'LOAD TRACK':
         return {
-            
+          title: action.title,
+          album: action.album,
+          picture: action.picture,
+          artist: action.artist
         }
 
     default:
