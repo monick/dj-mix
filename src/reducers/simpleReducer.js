@@ -12,7 +12,6 @@ const singleTrackReducer = (isLeftReducer) =>
     
     switch (action.type) {
       case 'LOAD TRACK':
-          console.log('asdfasdfasdf')
           return {
             title: action.title,
             album: action.album,

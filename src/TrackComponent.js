@@ -1,46 +1,8 @@
 import React from 'react';
 import './TrackComponent.css';
-import music from './music.png';
-import { loadTrack } from './actions/trackActions';
 import { connect } from 'react-redux';
-
-const TrackCover = (props) => (
-    <div 
-        className='track__cover' 
-        onClick={() => props.loadTrack(props.isLeft)}>
-        <img src={music}></img>
-    </div>
-);
-
-const mapDispatchToProps = {
-    loadTrack
-};
-const TrackCoverConnected = connect(undefined, mapDispatchToProps)(TrackCover);
-
-// const loadTrack = () => {
-//     return fetch(track)
-//         .then(function(response) {
-//             return response.blob();
-//         });
-// }
-
-
-
-// const handleClick = () => {
-//     loadTrack()
-//         .then((blob) => {
-//             jsmediatags.read(blob, {
-//                 onSuccess: function(tag) {
-//                     console.log(tag);
-//                 },
-//                 onError: function(error) {
-//                     console.log(':(', error.type, error.info);
-//                 }
-//             });
-//         });
-// }
-
-
+import TrackCoverConnected from './TrackCover';
+import { getTrack } from './Utils';
 
 class TrackComponent extends React.Component {
     render() {
@@ -60,12 +22,9 @@ class TrackComponent extends React.Component {
     }
 }
 
-const getTrack = (state, isLeft) =>
-    state.tracks[isLeft ? 'left': 'right'];
 
 const mapStateToProps = (state, props) => {
     const track = getTrack(state, props.left);
-    // const track = state;
 
     return {
         author: track.artist,
