@@ -1,13 +1,11 @@
 import React from 'react';
 import './TrackComponent.css';
 import music from './music.png';
-import track from './track.mp3';
-import jsmediatags from 'jsmediatags';
 import { loadTrack } from './actions/trackActions';
 import { connect } from 'react-redux';
 
 const TrackCover = (props) => (
-    <div className='track__cover' onClick={handleClick(props.loadTrack)}>
+    <div className='track__cover' onClick={props.loadTrack}>
         <img src={music}></img>
     </div>
 );
@@ -24,11 +22,7 @@ const TrackCoverConnected = connect(undefined, mapDispatchToProps)(TrackCover);
 //         });
 // }
 
-const loadTrackFromServer = async () => {
-    const response = await fetch(track)
 
-    return response.blob();
-}
 
 // const handleClick = () => {
 //     loadTrack()
@@ -44,19 +38,7 @@ const loadTrackFromServer = async () => {
 //         });
 // }
 
-const handleClick = (loadTrack) => async () => {
-    const blob = await loadTrackFromServer();
 
-    jsmediatags.read(blob, {
-        onSuccess: function(tag) {
-            console.log(tag);
-            loadTrack(tag);
-        },
-        onError: function(error) {
-            console.log(':(', error.type, error.info);
-        }
-    });
-}
 
 class TrackComponent extends React.Component {
     render() {
