@@ -5,7 +5,9 @@ import { loadTrack } from './actions/trackActions';
 import { connect } from 'react-redux';
 
 const TrackCover = (props) => (
-    <div className='track__cover' onClick={props.loadTrack}>
+    <div 
+        className='track__cover' 
+        onClick={() => props.loadTrack(props.isLeft)}>
         <img src={music}></img>
     </div>
 );
@@ -47,7 +49,7 @@ class TrackComponent extends React.Component {
             : 'track--right';
         return (
             <div className={`track ${alignmentClassName}`}>
-                <TrackCoverConnected />
+                <TrackCoverConnected isLeft={this.props.left} />
                 <div className='track__info'>
                     <p>{this.props.author}</p>
                     <p>{this.props.title}</p>
@@ -58,8 +60,16 @@ class TrackComponent extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    author: state.artist,
-    title: state.title
-});
+const getTrack = (state, isLeft) =>
+    state.tracks[isLeft ? 'left': 'right'];
+
+const mapStateToProps = (state, props) => {
+    const track = getTrack(state, props.left);
+    // const track = state;
+
+    return {
+        author: track.artist,
+        title: track.title
+    };
+};
 export default connect(mapStateToProps) (TrackComponent);

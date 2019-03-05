@@ -7,7 +7,7 @@ const loadTrackFromServer = async () => {
     return response.blob();
 }
 
-export const loadTrack = () => async dispatch => {
+export const loadTrack = (isLeft) => async dispatch => {
     const blob = await loadTrackFromServer();
 
     jsmediatags.read(blob, {
@@ -17,7 +17,8 @@ export const loadTrack = () => async dispatch => {
                 title: tag.tags.title,
                 album: tag.tags.album,
                 picture: tag.tags.picture,
-                artist: tag.tags.artist
+                artist: tag.tags.artist,
+                isLeft: isLeft
             })
         },
         onError: function(error) {
