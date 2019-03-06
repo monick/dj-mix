@@ -2,7 +2,8 @@ import { combineReducers } from "../../../../Library/Caches/typescript/3.3/node_
 
 const defaultState = {
   title: 'Title',
-  artist: 'Artist'
+  artist: 'Artist',
+  trackLength: 0
 };
 
 const singleTrackReducer = (isLeftReducer) => 
@@ -16,7 +17,8 @@ const singleTrackReducer = (isLeftReducer) =>
             title: action.title,
             album: action.album,
             picture: action.picture,
-            artist: action.artist
+            artist: action.artist,
+            trackLength: action.trackLength
           }
 
       default:
