@@ -21,14 +21,8 @@ class App extends Component {
   render() {
     return (
       <div className="App grid-container">
-        <TrackComponent 
-          title={'TRACK 1'} 
-          author={'author one'} 
-          left/>
-        <TrackComponent 
-          title={'TRACK 2'} 
-          author={'author two'} 
-          right/>
+        <TrackComponent left/>
+        <TrackComponent right/>
       </div>
     );
   }
