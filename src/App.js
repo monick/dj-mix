@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { simpleAction } from './actions/simpleAction';
 import TrackComponent from './TrackComponent';
+import { DeckComponent } from './DeckComponent';
 
 const mapStateToProps = state => ({
   ...state
@@ -29,6 +30,8 @@ class App extends Component {
           title={'TRACK 2'} 
           author={'author two'} 
           right/>
+        <DeckComponent left/>
+        <DeckComponent right/>
       </div>
     );
   }

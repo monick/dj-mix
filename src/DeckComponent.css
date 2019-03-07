@@ -1,0 +1,22 @@
+.deck {
+    background: #020202;
+    display: flex;
+}
+
+.deck--left {
+    grid-area: leftDeck;
+}
+
+.deck > img {
+    padding: 30px;
+    width: 700px;
+    height: 700px;
+}
+
+.deck.deck--right {
+    grid-area: rightDeck;
+}
+
+.deck .deck__info {
+    flex: 1;
+}

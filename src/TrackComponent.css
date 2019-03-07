@@ -7,7 +7,7 @@ p {
     color: aliceblue;
 }
 
-img {
+.track__cover > img {
     width: 100px;
     height: 100px;
 }
