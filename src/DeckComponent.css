@@ -7,16 +7,11 @@
     grid-area: leftDeck;
 }
 
-.deck > img {
-    padding: 30px;
+.deck__image {
     width: 700px;
     height: 700px;
 }
 
 .deck.deck--right {
     grid-area: rightDeck;
-}
-
-.deck .deck__info {
-    flex: 1;
 }

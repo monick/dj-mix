@@ -9,7 +9,7 @@ export class DeckComponent extends React.Component {
         
         return (
             <div className={`deck ${alignmentClassName}`}>
-                <img src={vinyl}></img> 
+                <img className="deck__image" src={vinyl}></img> 
             </div>
         )
     }
