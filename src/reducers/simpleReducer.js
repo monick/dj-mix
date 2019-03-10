@@ -1,19 +1,37 @@
-export default (state = {count: 0}, action) => {
-  switch (action.type) {
-    case 'SIMPLE_ACTION':
-      return {
-        result: action.payload
-      }
-    case 'INCREMENT':
-        return {
-          count: state.count + 1
-        }
-    case 'DECREMENT':
-        return {
-          count: state.count - 1
-        }
+import { combineReducers } from "../../../../Library/Caches/typescript/3.3/node_modules/redux";
 
-    default:
+const defaultState = {
+  title: 'Title',
+  artist: 'Artist',
+  trackLength: 0
+};
+
+const singleTrackReducer = (isLeftReducer) => 
+  (state = defaultState, action) => {
+    if(isLeftReducer !== !!action.isLeft)
       return state;
-  }
+    
+    switch (action.type) {
+      case 'LOAD TRACK':
+          return {
+            title: action.title,
+            album: action.album,
+            picture: action.picture,
+            artist: action.artist,
+            trackLength: action.trackLength
+          }
+
+      default:
+        return state;
+    }
 }
+
+const tracksReducer = combineReducers({
+  left: singleTrackReducer(true),
+  right: singleTrackReducer(false)
+})
+
+
+export default combineReducers({
+  tracks: tracksReducer
+});

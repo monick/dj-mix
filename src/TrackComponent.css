@@ -1,0 +1,33 @@
+.track {
+    background: #020202;
+    display: flex;
+}
+
+p {
+    color: aliceblue;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.track--left {
+    grid-area: leftTrack;
+}
+
+.track > img {
+    padding: 30px;
+}
+
+.track.track--right {
+    grid-area: rightTrack;
+}
+
+.track.track--right .track__cover {
+    order: 1;
+}
+
+.track .track__info {
+    flex: 1;
+}
