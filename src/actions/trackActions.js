@@ -1,6 +1,5 @@
 import track from '../track.mp3';
 import jsmediatags from 'jsmediatags';
-import { reject } from 'q';
 
 const loadTrackFromServer = async () => {
     const response = await fetch(track)
@@ -25,8 +24,8 @@ const getTrackDuration = async() => {
     return durationInMiliSeconds;
 }
 
-const openTrack = (blob, songDuration, dispatch, isLeft) => {
-    new Promise((resolve, reject) => {
+const readTags = (blob) => {
+    return new Promise((resolve, reject) => {
         jsmediatags.read(blob, {
             onSuccess: (tag) => {
                 resolve(tag);
@@ -36,22 +35,21 @@ const openTrack = (blob, songDuration, dispatch, isLeft) => {
                 reject(error);
             }
         });
-    }).then(tag => {
-        dispatch({
-            type: 'LOAD TRACK',
-            title: tag.tags.title,
-            album: tag.tags.album,
-            picture: tag.tags.picture,
-            artist: tag.tags.artist,
-            isLeft: isLeft,
-            trackLength: songDuration
-        })
     })
 }
 
 export const loadTrack = (isLeft) => async dispatch => {
     const blob = await loadTrackFromServer();
     const songDuration = await getTrackDuration();
-
-    await openTrack(blob, songDuration, dispatch, isLeft);
+    
+    const tag = await readTags(blob);
+    dispatch({
+        type: 'LOAD TRACK',
+        title: tag.tags.title,
+        album: tag.tags.album,
+        picture: tag.tags.picture,
+        artist: tag.tags.artist,
+        isLeft: isLeft,
+        trackLength: songDuration
+    })
 }
