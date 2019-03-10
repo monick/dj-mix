@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "jsmediatags": "^3.8.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -27,6 +30,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
     "redux-logger": "^3.0.6"
   }
 }

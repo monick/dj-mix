@@ -1,5 +1,6 @@
 import React from 'react';
 import vinyl from './vinyl.svg';
+import './DeckComponent.css';
 
 export class DeckComponent extends React.Component {
     render() {

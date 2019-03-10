@@ -1,6 +1,5 @@
 .deck {
-    background: #020202;
-    display: flex;
+    background: #0202027d;
 }
 
 .deck--left {
@@ -8,10 +7,21 @@
 }
 
 .deck__image {
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
+    animation: deck-spin infinite 5s linear;
+    pointer-events: none;
 }
 
 .deck.deck--right {
     grid-area: rightDeck;
+}
+
+@keyframes deck-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
 }

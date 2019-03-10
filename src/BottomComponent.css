@@ -1,0 +1,17 @@
+.bottom {
+    background: #0202027d;
+    max-height: 100%;
+}
+
+.bottom--left {
+    grid-area: leftBottom;
+}
+
+.bottom.bottom--right {
+    grid-area: rightBottom;
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+}
