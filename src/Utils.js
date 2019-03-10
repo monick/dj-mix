@@ -1,3 +1,5 @@
+import music from './music.png';
+
 export const getTrack = (state, isLeft) =>
 state.tracks[isLeft ? 'left': 'right'];
 
@@ -13,3 +15,17 @@ export const formatTrackLength = (length) => {
      
     return minutes+":"+ properSeconds;
 };
+
+export const getPicture = (picture) => {
+    if(!picture)
+        return music;
+
+    const byteArray = new Uint8Array(picture.data);
+    const oMyBlob = new Blob(
+        [byteArray], 
+        {type : picture.format }
+    );
+    const url = URL.createObjectURL(oMyBlob);
+
+    return url;
+}

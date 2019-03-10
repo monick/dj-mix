@@ -24,26 +24,32 @@ const getTrackDuration = async() => {
     return durationInMiliSeconds;
 }
 
-
+const readTags = (blob) => {
+    return new Promise((resolve, reject) => {
+        jsmediatags.read(blob, {
+            onSuccess: (tag) => {
+                resolve(tag);
+            },
+            onError: (error) => {
+                console.log(':(', error.type, error.info);
+                reject(error);
+            }
+        });
+    })
+}
 
 export const loadTrack = (isLeft) => async dispatch => {
     const blob = await loadTrackFromServer();
     const songDuration = await getTrackDuration();
-
-    jsmediatags.read(blob, {
-        onSuccess: function(tag) { 
-            dispatch({
-                type: 'LOAD TRACK',
-                title: tag.tags.title,
-                album: tag.tags.album,
-                picture: tag.tags.picture,
-                artist: tag.tags.artist,
-                isLeft: isLeft,
-                trackLength: songDuration
-            })
-        },
-        onError: function(error) {
-            console.log(':(', error.type, error.info);
-        }
-    });
+    
+    const tag = await readTags(blob);
+    dispatch({
+        type: 'LOAD TRACK',
+        title: tag.tags.title,
+        album: tag.tags.album,
+        picture: tag.tags.picture,
+        artist: tag.tags.artist,
+        isLeft: isLeft,
+        trackLength: songDuration
+    })
 }
