@@ -12,7 +12,7 @@ export class BottomComponent extends React.Component {
             <div className={`bottom ${alignmentClassName}`}>
                 <div className='play-btn'>
                     <button>
-                        <FontAwesomeIcon icon='play' />
+                        <FontAwesomeIcon size='3x' icon='play' />
                     </button>
                 </div>
             </div>
