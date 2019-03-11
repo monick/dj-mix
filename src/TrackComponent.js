@@ -25,7 +25,6 @@ class TrackComponent extends React.Component {
     }
 }
 
-
 const mapStateToProps = (state, props) => {
     const track = getTrack(state, props.left);
 

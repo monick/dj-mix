@@ -41,7 +41,8 @@ const readTags = (blob) => {
 export const loadTrack = (isLeft) => async dispatch => {
     const blob = await loadTrackFromServer();
     const songDuration = await getTrackDuration();
-    
+
+    const audio = await getTrack();
     const tag = await readTags(blob);
     dispatch({
         type: 'LOAD TRACK',
@@ -50,6 +51,34 @@ export const loadTrack = (isLeft) => async dispatch => {
         picture: tag.tags.picture,
         artist: tag.tags.artist,
         isLeft: isLeft,
-        trackLength: songDuration
+        trackLength: songDuration,
+        audio: audio
+    })
+}
+
+export const toogleAction = (isLeft, audio, isAudioPlaying) => dispatch => {
+    if(isAudioPlaying) {
+        pauseMusic(isLeft, audio, dispatch);
+        console.log('pause');
+    } else {
+        playMusic(isLeft, audio, dispatch);
+        console.loga('play')
+    }
+};
+const playMusic = (isLeft, audio) => dispatch => {
+    audio.play();
+    dispatch({
+        type: 'PLAY AUDIO',
+        isLeft: isLeft,
+        isAudioPlaying: true   
+    })
+}
+
+const pauseMusic = (isLeft, audio) => dispatch => {
+    audio.pause();
+    dispatch({
+        type: 'PAUSE AUDIO',
+        isLeft: isLeft,
+        isAudioPlaying: true        
     })
 }

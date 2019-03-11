@@ -1,8 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './BottomComponent.css';
+import { connect } from 'react-redux';
+import { getTrack } from './Utils';
+import { toogleAction } from './actions/trackActions';
 
-export class BottomComponent extends React.Component {
+class BottomComponent extends React.Component {
+    
     render() {
         const alignmentClassName = this.props.left 
             ? 'bottom--left' 
@@ -11,11 +15,26 @@ export class BottomComponent extends React.Component {
         return (
             <div className={`bottom ${alignmentClassName}`}>
                 <div className='play-btn'>
-                    <button>
-                        <FontAwesomeIcon size='3x' color="grey" icon='play' />
+                    <button onClick={toogleAction(this.props.left, this.props.audio, !this.props.isAudioPlaying)}>
+                        <FontAwesomeIcon size='3x' color="white" icon='play' />
                     </button>
                 </div>
             </div>
         )
     }
 };
+
+const mapDispatchToProps = {
+    toogleAction
+};
+
+const mapStateToProps = (state, props) => {
+    const track = getTrack(state, props.left);
+
+    return {
+        audio: track.audio,
+        trackLength: track.trackLength,
+        isAudioPlaying: track.isAudioPlaying
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps) (BottomComponent);

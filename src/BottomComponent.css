@@ -16,8 +16,6 @@
 
 .play-btn {
     flex: 1;
-    width: 60px;
-    height: 60px;
 }
 
 .play-btn > button {
@@ -26,4 +24,8 @@
     height: 80px;
     border: 3px solid darkgray;
     background: #2b2b2b;
+}
+
+svg {
+    padding-left: 7px;
 }
