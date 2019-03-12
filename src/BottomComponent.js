@@ -29,7 +29,6 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = (state, props) => {
-    console.log(state);
     const track = getTrack(state, props.left);
 
     return { 
