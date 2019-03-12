@@ -10,7 +10,13 @@
     width: 600px;
     height: 600px;
     animation: deck-spin infinite 5s linear;
-    pointer-events: none;
+}
+.deck__image__rotate {  
+    animation-play-state: running;
+}
+
+.deck__image__stop {
+    animation-play-state: paused;
 }
 
 .deck.deck--right {

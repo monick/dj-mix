@@ -8,6 +8,7 @@ const defaultState = {
 
 const singleTrackReducer = (isLeftReducer) => 
   (state = defaultState, action) => {
+    debugger;
     if(isLeftReducer !== !!action.isLeft)
       return state;
     
@@ -23,13 +24,18 @@ const singleTrackReducer = (isLeftReducer) =>
           }
       case 'PLAY AUDIO':
           return {
-            audio: action.track.audio,
-            trackLength: action.track.trackLength,
-            isAudioPlaying: action.track.isAudioPlaying
+            ...state,
+            audio: action.audio,
+            isAudioPlaying: action.isAudioPlaying
           }
-
+      case 'PAUSE AUDIO':
+          return {
+            ...state,
+            audio: action.audio,
+            isAudioPlaying: !action.isAudioPlaying
+          }
       default:
-        return state;
+        return state; 
     }
 }
 

@@ -15,7 +15,7 @@ class BottomComponent extends React.Component {
         return (
             <div className={`bottom ${alignmentClassName}`}>
                 <div className='play-btn'>
-                    <button onClick={toogleAction(this.props.left, this.props.audio, !this.props.isAudioPlaying)}>
+                    <button onClick={() => this.props.toogleAction(this.props.left, this.props.audio, this.props.isAudioPlaying)}>
                         <FontAwesomeIcon size='3x' color="white" icon='play' />
                     </button>
                 </div>
@@ -29,9 +29,10 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = (state, props) => {
+    console.log(state);
     const track = getTrack(state, props.left);
 
-    return {
+    return { 
         audio: track.audio,
         trackLength: track.trackLength,
         isAudioPlaying: track.isAudioPlaying

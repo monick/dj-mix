@@ -58,19 +58,22 @@ export const loadTrack = (isLeft) => async dispatch => {
 
 export const toogleAction = (isLeft, audio, isAudioPlaying) => dispatch => {
     if(isAudioPlaying) {
-        pauseMusic(isLeft, audio, dispatch);
+        dispatch(pauseMusic(isLeft, audio));
         console.log('pause');
     } else {
-        playMusic(isLeft, audio, dispatch);
-        console.loga('play')
+        dispatch(playMusic(isLeft, audio));
+        console.log('play');
     }
 };
 const playMusic = (isLeft, audio) => dispatch => {
-    audio.play();
+    if(audio !== undefined){
+        audio.play();
+    }
     dispatch({
         type: 'PLAY AUDIO',
         isLeft: isLeft,
-        isAudioPlaying: true   
+        isAudioPlaying: true,
+        audio: audio   
     })
 }
 
@@ -79,6 +82,7 @@ const pauseMusic = (isLeft, audio) => dispatch => {
     dispatch({
         type: 'PAUSE AUDIO',
         isLeft: isLeft,
-        isAudioPlaying: true        
+        isAudioPlaying: true,
+        audio: audio     
     })
 }
