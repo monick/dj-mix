@@ -1,5 +1,6 @@
 .deck {
     background: #0202027d;
+    overflow: hidden;
 }
 
 .deck--left {

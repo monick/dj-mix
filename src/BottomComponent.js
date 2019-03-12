@@ -15,7 +15,7 @@ class BottomComponent extends React.Component {
         return (
             <div className={`bottom ${alignmentClassName}`}>
                 <div className='play-btn'>
-                    <button onClick={() => this.props.toogleAction(this.props.left, this.props.audio, this.props.isAudioPlaying)}>
+                    <button onClick={() => this.props.toogleAction(this.props.left)}>
                         <FontAwesomeIcon size='3x' color="white" icon='play' />
                     </button>
                 </div>
@@ -28,13 +28,4 @@ const mapDispatchToProps = {
     toogleAction
 };
 
-const mapStateToProps = (state, props) => {
-    const track = getTrack(state, props.left);
-
-    return { 
-        audio: track.audio,
-        trackLength: track.trackLength,
-        isAudioPlaying: track.isAudioPlaying
-    };
-};
-export default connect(mapStateToProps, mapDispatchToProps) (BottomComponent);
+export default connect(undefined, mapDispatchToProps) (BottomComponent);

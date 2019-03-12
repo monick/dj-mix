@@ -25,13 +25,11 @@ const singleTrackReducer = (isLeftReducer) =>
       case 'PLAY AUDIO':
           return {
             ...state,
-            audio: action.audio,
             isAudioPlaying: action.isAudioPlaying
           }
       case 'PAUSE AUDIO':
           return {
             ...state,
-            audio: action.audio,
             isAudioPlaying: !action.isAudioPlaying
           }
       default:

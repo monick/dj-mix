@@ -1,5 +1,6 @@
 import track from '../track.mp3';
 import jsmediatags from 'jsmediatags';
+import { getTrack as getAudio } from '../Utils';
 
 const loadTrackFromServer = async () => {
     const response = await fetch(track)
@@ -14,7 +15,7 @@ const getTrack = () => {
             resolve(song);
         });
     });
-}   
+}
 
 const getTrackDuration = async() => {
     
@@ -56,33 +57,38 @@ export const loadTrack = (isLeft) => async dispatch => {
     })
 }
 
-export const toogleAction = (isLeft, audio, isAudioPlaying) => dispatch => {
-    if(isAudioPlaying) {
-        dispatch(pauseMusic(isLeft, audio));
-        console.log('pause');
+export const toogleAction = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    if(track.isAudioPlaying) {
+        dispatch(pauseMusic(isLeft, track.audio));
     } else {
-        dispatch(playMusic(isLeft, audio));
-        console.log('play');
+        dispatch(playMusic(isLeft, track.audio));
     }
 };
-const playMusic = (isLeft, audio) => dispatch => {
-    if(audio !== undefined){
-        audio.play();
+const playMusic = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    
+    if(track.audio !== undefined){
+        track.audio.play();
     }
     dispatch({
         type: 'PLAY AUDIO',
         isLeft: isLeft,
         isAudioPlaying: true,
-        audio: audio   
+        audio: track.audio
     })
 }
 
-const pauseMusic = (isLeft, audio) => dispatch => {
-    audio.pause();
+const pauseMusic = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    track.audio.pause();
     dispatch({
         type: 'PAUSE AUDIO',
         isLeft: isLeft,
         isAudioPlaying: true,
-        audio: audio     
+        audio: track.audio     
     })
 }
