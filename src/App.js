@@ -5,10 +5,7 @@ import { simpleAction } from './actions/simpleAction';
 import TrackComponent from './TrackComponent';
 import DeckComponent from './DeckComponent';
 import BottomComponent from './BottomComponent';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faPlay);
+import './FontAwesome';
 
 const mapStateToProps = state => ({
   ...state

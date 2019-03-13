@@ -76,7 +76,6 @@ const playMusic = (isLeft) => (dispatch, getState) => {
     dispatch({
         type: 'PLAY AUDIO',
         isLeft: isLeft,
-        isAudioPlaying: true,
         audio: track.audio
     })
 }
@@ -88,7 +87,6 @@ const pauseMusic = (isLeft) => (dispatch, getState) => {
     dispatch({
         type: 'PAUSE AUDIO',
         isLeft: isLeft,
-        isAudioPlaying: true,
         audio: track.audio     
     })
 }
