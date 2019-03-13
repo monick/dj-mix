@@ -1,18 +1,9 @@
 import React from 'react';
 import './SliderComponent.css';
-import { Slider } from 'react-compound-slider';
-
-const railStyle = { //te style musza raczej byc inline do rail
-    position: 'absolute',
-    width: '100%',
-    height: 10,
-    marginTop: 35,
-    borderRadius: 5,
-    backgroundColor: '#8B9CB6',
-  }
+import { Slider, Handles } from 'react-compound-slider';
+import { Handle } from './HandleSliderComponent';
 
 export class SliderComponent extends React.Component {
-    
     render () {
         return ( 
             <Slider
@@ -20,7 +11,20 @@ export class SliderComponent extends React.Component {
                 domain={[0, 100]}
                 values={[10]}
             >
-           <div style={railStyle} /> 
+                <div className='railStyle' /> 
+                <Handles>
+                {({ handles, getHandleProps }) => (
+                    <div className="slider-handles">
+                        {handles.map(handle => (
+                            <Handle
+                                key={handle.id}
+                                handle={handle}
+                                getHandleProps={getHandleProps}
+                            />
+                        ))}
+                    </div>
+                )}
+                </Handles>
             </Slider>
         )
     }
