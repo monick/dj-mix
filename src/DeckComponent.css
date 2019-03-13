@@ -1,0 +1,34 @@
+.deck {
+    background: #0202027d;
+    overflow: hidden;
+}
+
+.deck--left {
+    grid-area: leftDeck;
+}
+
+.deck__image {
+    width: 600px;
+    height: 600px;
+    animation: deck-spin infinite 5s linear;
+}
+.deck__image__rotate {  
+    animation-play-state: running;
+}
+
+.deck__image__stop {
+    animation-play-state: paused;
+}
+
+.deck.deck--right {
+    grid-area: rightDeck;
+}
+
+@keyframes deck-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

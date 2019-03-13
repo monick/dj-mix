@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 372.7 374" style="enable-background:new 0 0 372.7 374;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill-opacity:0.509;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_2_);}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_3_);}
+	.st6{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_4_);}
+	.st7{opacity:0.743;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;enable-background:new    ;}
+</style>
+<g>
+	<path class="st0" d="M187.7,4C85.6,4,2.7,86.9,2.7,189s82.9,185,185,185s185-82.9,185-185S289.8,4,187.7,4z M187.7,183.8
+		c2.9,0,5.2,2.3,5.2,5.2s-2.3,5.2-5.2,5.2c-2.9,0-5.2-2.3-5.2-5.2S184.8,183.8,187.7,183.8z"/>
+	<path class="st1" d="M185,0C82.9,0,0,82.9,0,185s82.9,185,185,185s185-82.9,185-185S287.1,0,185,0z M185,179.8
+		c2.9,0,5.2,2.3,5.2,5.2s-2.3,5.2-5.2,5.2c-2.9,0-5.2-2.3-5.2-5.2S182.1,179.8,185,179.8z"/>
+	<path class="st2" d="M185,117.7c-37.2,0-67.3,30.2-67.3,67.3c0,37.2,30.2,67.3,67.3,67.3c37.2,0,67.3-30.2,67.3-67.3
+		C252.3,147.8,222.2,117.7,185,117.7z M185,180.6c2.5,0,4.4,2,4.4,4.4s-2,4.4-4.4,4.4s-4.4-2-4.4-4.4S182.5,180.6,185,180.6z"/>
+	<path class="st1" d="M185,0C82.9,0,0,82.9,0,185s82.9,185,185,185s185-82.9,185-185S287.1,0,185,0z M185,3.6
+		c100.1,0,181.4,81.3,181.4,181.4S285.2,366.4,185,366.4S3.6,285.2,3.6,185S84.8,3.6,185,3.6L185,3.6z"/>
+	
+		<radialGradient id="SVGID_1_" cx="129.6815" cy="434.8393" r="92.5" gradientTransform="matrix(0.8696 -0.8696 -1.9615 -1.9615 1018.6107 1320.1493)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	</radialGradient>
+	<path class="st3" d="M278.6,185c0,51.7-41.9,93.6-93.6,93.6v87.8c100.1,0,181.4-81.3,181.4-181.4L278.6,185L278.6,185z"/>
+	
+		<radialGradient id="SVGID_2_" cx="233.1785" cy="485.8207" r="92.5" gradientTransform="matrix(-0.8696 0.8696 1.9615 1.9615 -834.6107 -1164.1493)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	</radialGradient>
+	<path class="st4" d="M91.4,185c0-51.7,41.9-93.6,93.6-93.6V3.6C84.9,3.6,3.6,84.9,3.6,185L91.4,185L91.4,185z"/>
+	
+		<radialGradient id="SVGID_3_" cx="125.4748" cy="483.2289" r="68.844" gradientTransform="matrix(0 2.7782 0.8239 0 -301.1196 -175.6044)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#6C6C6C"/>
+		<stop  offset="1" style="stop-color:#3E3E3E"/>
+	</radialGradient>
+	<path class="st5" d="M233.7,136.3c-26.9-26.9-70.5-26.9-97.4,0s-26.9,70.5,0,97.4s70.5,26.9,97.4,0S260.5,163.2,233.7,136.3
+		L233.7,136.3z M231.5,138.5c25.7,25.7,25.7,67.4,0,93.1s-67.4,25.7-93.1,0s-25.7-67.4,0-93.1S205.9,112.8,231.5,138.5z"/>
+	
+		<radialGradient id="SVGID_4_" cx="124.3476" cy="482.16" r="53.688" gradientTransform="matrix(0 2.8729 1 0 -385.16 -184.2368)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#F7F7F7"/>
+		<stop  offset="1" style="stop-color:#E1E1E1"/>
+	</radialGradient>
+	<path class="st6" d="M223,147c-21-21-55-21-75.9,0s-21,55,0,75.9s55,21,75.9,0S243.9,168,223,147L223,147z M188.7,181.3
+		c2,2,2,5.3,0,7.3s-5.3,2-7.3,0c-2-2-2-5.3,0-7.3S186.6,179.3,188.7,181.3z"/>
+	<g>
+		<path class="st7" d="M229,141.1c-7.1-7.1-15.4-12.1-24.3-15l-1.2,3.7c8.3,2.8,16.1,7.5,22.7,14.1c8.1,8.1,13.3,17.9,15.6,28.2
+			l3.8-0.9C243.1,160.2,237.6,149.7,229,141.1L229,141.1z"/>
+		<path class="st7" d="M127.6,175.3l-3.9-0.7c-3.2,19.2,2.5,39.6,17.3,54.4c14.7,14.7,35.1,20.5,54.2,17.3l-0.6-3.9
+			c-17.9,3-37-2.4-50.8-16.3C130,212.3,124.6,193.2,127.6,175.3L127.6,175.3z"/>
+	</g>
+</g>
+</svg>

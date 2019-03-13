@@ -18,11 +18,21 @@ const singleTrackReducer = (isLeftReducer) =>
             album: action.album,
             picture: action.picture,
             artist: action.artist,
-            trackLength: action.trackLength
+            trackLength: action.trackLength,
+            audio: action.audio
           }
-
+      case 'PLAY AUDIO':
+          return {
+            ...state,
+            isAudioPlaying: true
+          }
+      case 'PAUSE AUDIO':
+          return {
+            ...state,
+            isAudioPlaying: false
+          }
       default:
-        return state;
+        return state; 
     }
 }
 

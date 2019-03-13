@@ -1,5 +1,6 @@
 import track from '../track.mp3';
 import jsmediatags from 'jsmediatags';
+import { getTrack as getAudio } from '../Utils';
 
 const loadTrackFromServer = async () => {
     const response = await fetch(track)
@@ -14,7 +15,7 @@ const getTrack = () => {
             resolve(song);
         });
     });
-}   
+}
 
 const getTrackDuration = async() => {
     
@@ -41,7 +42,8 @@ const readTags = (blob) => {
 export const loadTrack = (isLeft) => async dispatch => {
     const blob = await loadTrackFromServer();
     const songDuration = await getTrackDuration();
-    
+
+    const audio = await getTrack();
     const tag = await readTags(blob);
     dispatch({
         type: 'LOAD TRACK',
@@ -50,6 +52,41 @@ export const loadTrack = (isLeft) => async dispatch => {
         picture: tag.tags.picture,
         artist: tag.tags.artist,
         isLeft: isLeft,
-        trackLength: songDuration
+        trackLength: songDuration,
+        audio: audio
+    })
+}
+
+export const toogleAction = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    if(track.isAudioPlaying) {
+        dispatch(pauseMusic(isLeft, track.audio));
+    } else {
+        dispatch(playMusic(isLeft, track.audio));
+    }
+};
+const playMusic = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    
+    if(track.audio !== undefined){
+        track.audio.play();
+    }
+    dispatch({
+        type: 'PLAY AUDIO',
+        isLeft: isLeft,
+        audio: track.audio
+    })
+}
+
+const pauseMusic = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    track.audio.pause();
+    dispatch({
+        type: 'PAUSE AUDIO',
+        isLeft: isLeft,
+        audio: track.audio     
     })
 }

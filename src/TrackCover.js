@@ -12,7 +12,7 @@ const TrackCover = (props) => (
 );
 
 
-const mapStateToPops = (state, props) => {
+const mapStateToProps = (state, props) => {
     const track = getTrack(state, props.isLeft);
 
     return {
@@ -23,4 +23,4 @@ const mapStateToPops = (state, props) => {
 const mapDispatchToProps = {    
     loadTrack
 };
-export default connect(mapStateToPops, mapDispatchToProps)(TrackCover);
+export default connect(mapStateToProps, mapDispatchToProps)(TrackCover);

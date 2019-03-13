@@ -3,6 +3,9 @@ import './App.css';
 import { connect } from 'react-redux';
 import { simpleAction } from './actions/simpleAction';
 import TrackComponent from './TrackComponent';
+import DeckComponent from './DeckComponent';
+import BottomComponent from './BottomComponent';
+import './FontAwesome';
 
 const mapStateToProps = state => ({
   ...state
@@ -23,6 +26,10 @@ class App extends Component {
       <div className="App grid-container">
         <TrackComponent left/>
         <TrackComponent right/>
+        <DeckComponent left/>
+        <DeckComponent right/>
+        <BottomComponent left/>
+        <BottomComponent right/>
       </div>
     );
   }
