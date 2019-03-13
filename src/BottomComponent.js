@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './BottomComponent.css';
 import { connect } from 'react-redux';
-import { getTrack } from './Utils';
 import { toogleAction } from './actions/trackActions';
 import { SliderComponent } from './SliderComponent';
 
