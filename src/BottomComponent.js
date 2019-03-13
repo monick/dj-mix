@@ -4,6 +4,7 @@ import './BottomComponent.css';
 import { connect } from 'react-redux';
 import { getTrack } from './Utils';
 import { toogleAction } from './actions/trackActions';
+import { SliderComponent } from './SliderComponent';
 
 class BottomComponent extends React.Component {
     
@@ -19,6 +20,7 @@ class BottomComponent extends React.Component {
                         <FontAwesomeIcon size='3x' color="white" icon='play' />
                     </button>
                 </div>
+                <SliderComponent />
             </div>
         )
     }
