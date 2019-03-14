@@ -2,8 +2,43 @@ import track from '../track.mp3';
 import jsmediatags from 'jsmediatags';
 import { getTrack as getAudio } from '../Utils';
 
+export const loadTrack = (isLeft) => async dispatch => {
+    const blob = await loadTrackFromServer();
+    const songDuration = await getTrackDuration();
+
+    const audio = await getTrack();
+    const tag = await readTags(blob);
+    dispatch({
+        type: 'LOAD TRACK',
+        title: tag.tags.title,
+        album: tag.tags.album,
+        picture: tag.tags.picture,
+        artist: tag.tags.artist,
+        isLeft: isLeft,
+        trackLength: songDuration,
+        audio: audio
+    })
+}
+
+export const toogleAction = (isLeft) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft);
+    if(track.isAudioPlaying) {
+        dispatch(pauseMusic(isLeft, track.audio));
+    } else {
+        dispatch(playMusic(isLeft, track.audio));
+    }
+};
+
+export const toogleVolume = (isLeft, value) => (dispatch, getState) => {
+    const state = getState();
+    const track = getAudio(state, isLeft).audio;
+
+    track.volume = value[0];
+}
+
 const loadTrackFromServer = async () => {
-    const response = await fetch(track)
+    const response = await fetch(track);
 
     return response.blob();
 }
@@ -39,33 +74,6 @@ const readTags = (blob) => {
     })
 }
 
-export const loadTrack = (isLeft) => async dispatch => {
-    const blob = await loadTrackFromServer();
-    const songDuration = await getTrackDuration();
-
-    const audio = await getTrack();
-    const tag = await readTags(blob);
-    dispatch({
-        type: 'LOAD TRACK',
-        title: tag.tags.title,
-        album: tag.tags.album,
-        picture: tag.tags.picture,
-        artist: tag.tags.artist,
-        isLeft: isLeft,
-        trackLength: songDuration,
-        audio: audio
-    })
-}
-
-export const toogleAction = (isLeft) => (dispatch, getState) => {
-    const state = getState();
-    const track = getAudio(state, isLeft);
-    if(track.isAudioPlaying) {
-        dispatch(pauseMusic(isLeft, track.audio));
-    } else {
-        dispatch(playMusic(isLeft, track.audio));
-    }
-};
 const playMusic = (isLeft) => (dispatch, getState) => {
     const state = getState();
     const track = getAudio(state, isLeft);

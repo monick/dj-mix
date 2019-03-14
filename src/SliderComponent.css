@@ -25,6 +25,7 @@
     border: 0;
     text-align: center;
     cursor: pointer;
-    background-color: #2C4870;
+    background-color: #a9a9a9;
     color: #333;
+    border-radius: 12px;
 }

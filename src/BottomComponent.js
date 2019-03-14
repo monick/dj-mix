@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './BottomComponent.css';
 import { connect } from 'react-redux';
 import { toogleAction } from './actions/trackActions';
-import { SliderComponent } from './SliderComponent';
+import SliderComponent from './SliderComponent';
 
 class BottomComponent extends React.Component {
     
@@ -12,6 +12,7 @@ class BottomComponent extends React.Component {
             ? 'bottom--left' 
             : 'bottom--right';
         
+        const isLeft = this.props.left;
         return (
             <div className={`bottom ${alignmentClassName}`}>
                 <div className='play-btn'>
@@ -19,7 +20,7 @@ class BottomComponent extends React.Component {
                         <FontAwesomeIcon size='3x' color="white" icon='play' />
                     </button>
                 </div>
-                <SliderComponent />
+                <SliderComponent isLeft />
             </div>
         )
     }

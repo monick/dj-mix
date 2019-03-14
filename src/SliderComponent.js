@@ -2,14 +2,18 @@ import React from 'react';
 import './SliderComponent.css';
 import { Slider, Handles } from 'react-compound-slider';
 import { Handle } from './HandleSliderComponent';
+import { toogleVolume } from './actions/trackActions';
+import { connect } from 'react-redux';
 
-export class SliderComponent extends React.Component {
+class SliderComponent extends React.Component {
     render () {
         return ( 
             <Slider
                 className='slider'
-                domain={[0, 100]}
-                values={[10]}
+                domain={[0, 1]}
+                values={[1]}
+                step={0.01}
+                onChange={(values) => this.props.toogleVolume(this.props.isLeft, values)}
             >
                 <div className='railStyle' /> 
                 <Handles>
@@ -29,3 +33,9 @@ export class SliderComponent extends React.Component {
         )
     }
 }
+
+const mapDispatchToProps = {
+    toogleVolume
+};
+
+export default connect(undefined, mapDispatchToProps) (SliderComponent);
