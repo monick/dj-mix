@@ -1,13 +1,29 @@
-import track from '../track.mp3';
 import jsmediatags from 'jsmediatags';
 import { getTrack as getAudio } from '../Utils';
 
-export const loadTrack = (isLeft) => async dispatch => {
-    const blob = await loadTrackFromServer();
-    const songDuration = await getTrackDuration();
+const loadFromFile = async () => {
+    return new Promise((resolve, reject) => {
+        const x = document.createElement("INPUT");
+        x.type = "file";
+        x.onchange = (e) => {
+            const file = e.target.files[0];
 
-    const audio = await getTrack();
+            resolve(file);
+        };
+        x.click();
+    })
+}
+
+export const loadTrack = (isLeft) => async dispatch => {
+    const blob = await loadFromFile();
+    const url = URL.createObjectURL(blob);
+    console.log('url:', url);
+    const songDuration = await getTrackDuration(URL);
+    console.log('duration:', songDuration);
+
+    const audio = await getTrack(url);
     const tag = await readTags(blob);
+    console.log('tag:', tag);
     dispatch({
         type: 'LOAD TRACK',
         title: tag.tags.title,
@@ -37,24 +53,17 @@ export const toogleVolume = (isLeft, value) => (dispatch, getState) => {
     track.volume = value[0];
 }
 
-const loadTrackFromServer = async () => {
-    const response = await fetch(track);
-
-    return response.blob();
-}
-
-const getTrack = () => {
+const getTrack = (url) => {
     return new Promise(resolve => {
-        const song = new Audio([track]);
-        song.addEventListener('loadeddata', () => {
+        const song = new Audio([url]);
+        // song.addEventListener('loadeddata', () => {
             resolve(song);
-        });
+        // });
     });
 }
 
-const getTrackDuration = async() => {
-    
-    const audio = await getTrack();
+const getTrackDuration = async (url) => {
+    const audio = await getTrack(url);
     const durationInMiliSeconds = audio.duration * 1000;
     
     return durationInMiliSeconds;

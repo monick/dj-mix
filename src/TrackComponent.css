@@ -31,3 +31,10 @@ p {
 .track .track__info {
     flex: 1;
 }
+
+input{
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    background-color: red;
+}

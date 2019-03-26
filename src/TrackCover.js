@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 import { getTrack, getPicture } from './Utils';
 
 const TrackCover = (props) => (
-    <div 
-        className='track__cover' 
-        onClick={() => props.loadTrack(props.isLeft)}>
+    <div
+        onClick={props.loadTrack}
+        className='track__cover'> 
         <img src={getPicture(props.picture)}></img>
     </div>
 );
-
 
 const mapStateToProps = (state, props) => {
     const track = getTrack(state, props.isLeft);
